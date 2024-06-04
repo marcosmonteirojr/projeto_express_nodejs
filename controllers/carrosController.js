@@ -1,9 +1,10 @@
+const carrosModel = require('../model/carrosModel');
 class carrosController{
     buscar(){
-        return "buscar";
+        return carrosModel.listar();
     }
-    criar(){
-        return "criar";
+    criar(novocarros){
+        return carrosModel.criar(novocarros);
     }
     alterar(id){
         return "alterando "+id;

@@ -5,12 +5,15 @@ const carrosController = require("../controllers/carrosController");
 
 router.get("/carros", (req, res)=>{
     const resposta = carrosController.buscar();
-    res.send(resposta);
+    resposta
+    .then((resposta)=> res.status(200).json(resposta))
+    .catch((error)=>res.status(400).json(error.message));
 });
 
 router.post("/carros", (req, res)=>{
-    const resposta = carrosController.criar();
-    res.send(resposta);
+    const novocarros=req.body;
+    const resposta = carrosController.criar(novocarros);
+    resposta.then(carroCriado=> res.status(201).json(carroCriado)).catch(error=>res.status(400).json(error.message));
 });
 
 router.put("/carros/:id", (req, res)=>{

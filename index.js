@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 const port =3000;
 const router = require("./routes/index");
-router(app);
+router(app,express);
+
+
 /*
 //aula de banco
 const conexao = require("./Util/conexao");
@@ -27,6 +29,6 @@ app.listen(port, (error)=>{
         console.log("erro");
         return;
     }
-    console.log("ok");
+    //console.log("ok");
 });
 
