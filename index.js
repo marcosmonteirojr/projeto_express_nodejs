@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
 const port =3000;
+const router = require("./routes/index");
+router(app);
+/*
+//aula de banco
 const conexao = require("./Util/conexao");
 const tabela = require("./Util/tabela");
 
@@ -15,9 +19,9 @@ const router = Router();
 router.get("/carros", (req, res)=>{
     res.send("teste");
 });
-
-app.use(router);
 */
+
+
 app.listen(port, (error)=>{
     if(error){
         console.log("erro");
